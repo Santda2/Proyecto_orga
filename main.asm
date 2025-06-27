@@ -1,3 +1,5 @@
+#CAMBIO OBVIO PARA VER TRAKING
+
 .data
     # Variables globales aquí
     displayAddress: .word 0x10010000  # Dirección base del Bitmap Display

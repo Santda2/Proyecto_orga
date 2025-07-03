@@ -3,8 +3,20 @@
 # tamaño final de 16*32
 
 .data
-    # Variables globales aquí
-display: .space 1024
+    player1_board: .space 1024   # 16x32 = 512 words (2048 bytes)
+    player2_board: .space 1024
+    
+    cpu_board:     .space 1024   # Para modo PvCPU
+    current_player: .word 1      # 1 o 2
+    game_mode:      .word 0      # 0 = PvP, 1 = PvCPU
+    
+    # Colores
+    water_color:   .word 0x0000FF #azul
+    ship_color:    .word 0x808080 #Gris
+    hit_color:     .word 0xFF0000 #Rojo
+    miss_color:    .word 0xFFFFFF #Blanco
+    select_color:  .word 0xFFFF00 #Amarillo
+
 
 .text
 main:
@@ -14,22 +26,15 @@ main:
     j exit
 
 initialize_game:
-    li $t0 0x0000ff
-    li $t1 0
-	
     # Rutina para inicializar tableros, etc.
+    
+    
     jr $ra
 
 main_loop:
-    sw $t0 display($t1)
-    addi $t1 $t1 4
-    
-    beq $t1 2048 exit
-    
-    j main_loop
-
-
     # Lógica principal del juego
+    
+    
     jr $ra
 
 exit:
